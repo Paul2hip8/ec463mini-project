@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter app1',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.blue,
       ),
       home: const what_is_this(),
     );
@@ -27,7 +27,7 @@ class what_is_this extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: Column(
-        children:  <Widget>[
+        children: <Widget>[
           const Padding(
             padding: EdgeInsets.all(8.0),
             child: Text("hello"),
@@ -42,7 +42,7 @@ class what_is_this extends StatelessWidget {
             style: ButtonStyle(
               foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
             ),
-            onPressed: () { },
+            onPressed: () {},
             child: const Text('Search it!'),
           )
         ],
