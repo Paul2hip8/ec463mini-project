@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
 
 void main() {
   runApp(const MyApp());
@@ -15,38 +18,77 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const what_is_this(),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Flutter app1'),
+        ),
+        body: MyWidget(),
+      ),
     );
   }
 }
 
-class what_is_this extends StatelessWidget {
-  const what_is_this({super.key});
+// widget class
+class MyWidget extends StatefulWidget {
+  @override
+  _MyWidgetState createState() => _MyWidgetState();
+}
+
+class _MyWidgetState extends State<MyWidget> {
+  TextEditingController textController = TextEditingController();
+
+  String _textString = 'Search the Twitter User!';
+  String displayText = "";
+  String ReturnedText = "";
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Column(
-        children: <Widget>[
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Text("hello"),
-          ),
-          const TextField(
-            decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              hintText: 'Search a twitter user',
-            ),
-          ),
-          TextButton(
-            style: ButtonStyle(
-              foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
-            ),
-            onPressed: () {},
-            child: const Text('Search it!'),
-          )
-        ],
-      ),
+    return Column(
+      children: [
+        Text(
+          _textString,
+          style: TextStyle(fontSize: 30),
+        ),
+        TextField(
+          decoration: InputDecoration(
+              hintStyle: TextStyle(color: Colors.blue),
+              hintText: "Enter your name"),
+          controller: textController,
+        ),
+        ElevatedButton(
+          //                         <--- Button
+          child: const Text('Search the account'),
+          onPressed: () {
+            ReturnedText = something() as String;
+            setState(() {
+              displayText = textController.text;
+            });
+          },
+        ),
+        Text(
+          ReturnedText,
+          style: TextStyle(fontSize: 30),
+        ),
+      ],
     );
   }
+}
+
+Future<String> something() async {
+  var url = Uri.https("https://api.twitter.com/2/users/by?usernames=");
+  var response = await http.get(
+    url,
+    headers: {
+      "usernames": "TwitterDev,TwitterAPI", // Edit usernames to look up
+      "user.fields":
+          "created_at,description", // Edit optional query parameters here
+      "expansions": "pinned_tweet_id",
+      "User-Agent": "v2UserLookupJS",
+      "authorization":
+          "Bearer AAAAAAAAAAAAAAAAAAAAAPSZgwEAAAAAbRTtPV6SA0splpK4DMbG%2BOz2aso%3DKsHqLjCKHx6C4RD8EsInMwYhEIXxUkbMlcPx0RkFUONZq92g0s"
+    },
+  );
+  print('Response status: ${response.statusCode}');
+  print('Response body: ${response.body}');
+  return response.body;
 }
