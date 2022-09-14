@@ -85,7 +85,7 @@ Future<String> something() async {
       "expansions": "pinned_tweet_id",
       "User-Agent": "v2UserLookupJS",
       "authorization":
-          "Bearer AAAAAAAAAAAAAAAAAAAAAPSZgwEAAAAAbRTtPV6SA0splpK4DMbG%2BOz2aso%3DKsHqLjCKHx6C4RD8EsInMwYhEIXxUkbMlcPx0RkFUONZq92g0s"
+          "Bearer token here"
     },
   );
   print('Response status: ${response.statusCode}');
