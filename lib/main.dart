@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+
+import 'dart:developer';
 import 'dart:async';
 import 'dart:convert';
 
@@ -52,16 +54,17 @@ class _MyWidgetState extends State<MyWidget> {
         TextField(
           decoration: InputDecoration(
               hintStyle: TextStyle(color: Colors.blue),
-              hintText: "Enter your name"),
+              hintText: "Enter account name, no@"),
           controller: textController,
         ),
         ElevatedButton(
           //                         <--- Button
           child: const Text('Search the account'),
-          onPressed: () {
-            ReturnedText = something() as String;
+          onPressed: () async {
+            ReturnedText = "place_holder";
+            ReturnedText = await something(textController.text);
             setState(() {
-              displayText = textController.text;
+              displayText = ReturnedText;
             });
           },
         ),
@@ -74,21 +77,19 @@ class _MyWidgetState extends State<MyWidget> {
   }
 }
 
-Future<String> something() async {
-  var url = Uri.https("https://api.twitter.com/2/users/by?usernames=");
-  var response = await http.get(
-    url,
-    headers: {
-      "usernames": "TwitterDev,TwitterAPI", // Edit usernames to look up
-      "user.fields":
-          "created_at,description", // Edit optional query parameters here
-      "expansions": "pinned_tweet_id",
-      "User-Agent": "v2UserLookupJS",
-      "authorization":
-          "Bearer AAAAAAAAAAAAAAAAAAAAAPSZgwEAAAAAbRTtPV6SA0splpK4DMbG%2BOz2aso%3DKsHqLjCKHx6C4RD8EsInMwYhEIXxUkbMlcPx0RkFUONZq92g0s"
-    },
-  );
-  print('Response status: ${response.statusCode}');
-  print('Response body: ${response.body}');
+Future<String> something(String username) async {
+  String token =
+      "AAAAAAAAAAAAAAAAAAAAAPSZgwEAAAAAbRTtPV6SA0splpK4DMbG%2BOz2aso%3DKsHqLjCKHx6C4RD8EsInMwYhEIXxUkbMlcPx0RkFUONZq92g0s";
+
+  var uri = Uri.parse('https://api.twitter.com/2/users/by?usernames=$username');
+  // Uri.parse('https://jsonplaceholder.typicode.com/albums/1');
+
+  var response = await http.get(uri, headers: {
+    "Authorization": 'Bearer $token',
+  });
+  log('Response status: ${response.statusCode}');
+  log('Response body: ${response.body}');
+
   return response.body;
+  // return "some_future_text";
 }
