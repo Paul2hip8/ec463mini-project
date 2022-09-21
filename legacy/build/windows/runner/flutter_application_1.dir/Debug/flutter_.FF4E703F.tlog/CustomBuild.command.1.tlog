@@ -1,0 +1,10 @@
+^C:\USERS\XTYAO\DESKTOP\EC463MINI-PROJECT\FLUTTER_APPLICATION_1\WINDOWS\RUNNER\CMAKELISTS.TXT
+setlocal
+D:\visual_studio\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -SC:/Users/XTYAO/Desktop/ec463mini-project/flutter_application_1/windows -BC:/Users/XTYAO/Desktop/ec463mini-project/flutter_application_1/build/windows --check-stamp-file C:/Users/XTYAO/Desktop/ec463mini-project/flutter_application_1/build/windows/runner/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
