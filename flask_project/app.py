@@ -4,6 +4,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField
 from wtforms.validators import DataRequired
 from wtforms import SubmitField
+from google.cloud import language_v1
 
 import os
     

@@ -1,5 +1,6 @@
 # app.py
 from flask import Flask, request, jsonify
+from google.cloud import language_v1
 import botometer
 import google.cloud
 
@@ -16,8 +17,6 @@ bom = botometer.Botometer(wait_on_ratelimit=True,
                           rapidapi_key=rapidapi_key,
                           **twitter_app_auth)
 
-from google.cloud import language_v1
-
 def sample_analyze_entity_sentiment(text_content):
     """
     Analyzing Entity Sentiment in a String
@@ -32,12 +31,6 @@ def sample_analyze_entity_sentiment(text_content):
 
     # Available types: PLAIN_TEXT, HTML
     type_ = language_v1.types.Document.Type.PLAIN_TEXT
-
-    # Optional. If not specified, the language is automatically detected.
-    # For list of supported languages:
-    # https://cloud.google.com/natural-language/docs/languages
-    language = "en"
-    document = {"content": text_content, "type_": type_, "language": language}
 
     # Available values: NONE, UTF8, UTF16, UTF32
     encoding_type = language_v1.EncodingType.UTF8
