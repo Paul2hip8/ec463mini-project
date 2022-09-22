@@ -8,6 +8,7 @@ from wtforms import SubmitField
 import os
     
 import botometer
+import google.cloud
 
 app = Flask(__name__)
 
