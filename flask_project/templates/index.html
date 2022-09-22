@@ -1,28 +1,34 @@
-<form method="POST">
-    <input name="text">
-    <input type="submit">
-</form>
-
-<br><br>
-<p>result for {{id}}</p>
+<center>
+<section class="content">
+    <header>
+      {% block header %}Welcome to Yao and Paul's Twitter Account Lookup! Please Enter a Twitter Username below:{% endblock %}
+    </header>
+  <br>
+  <form method="POST">
+      <input name="text">
+      <input type="submit">
+  </form>
+  
+<br>
+<p>Results for @{{id}}:</p>
 
 <p>in English, bot score is {{dataEn.overall}} out of 5</p>
 <ul>
-    <li>{{dataEn.astroturf}}</li>
-    <li>{{dataEn.fake_follower}}</li>
-    <li>{{dataEn.financial}}</li>
-    <li>{{dataEn.other}}</li>
-    <li>{{dataEn.self_declared}}</li>
-    <li>{{dataEn.spammer}}</li>
+    <oi>Astroturf: {{dataEn.astroturf}}</oi><br>
+    <oi>Fake Follower: {{dataEn.fake_follower}}</oi><br>
+    <oi>Financial: {{dataEn.financial}}</oi><br>
+    <oi>Other: {{dataEn.other}}</oi><br>
+    <oi>Self Declared: {{dataEn.self_declared}}</oi><br>
+    <oi>Spammer: {{dataEn.spammer}}</oi><br>
 </ul>
 
 <p>in all languages, bot score is {{dataUn.overall}} out of 5</p>
 <ul>
-    <li>{{dataUn.astroturf}}</li>
-    <li>{{dataUn.fake_follower}}</li>
-    <li>{{dataUn.financial}}</li>
-    <li>{{dataUn.other}}</li>
-    <li>{{dataUn.self_declared}}</li>
-    <li>{{dataUn.spammer}}</li>
+    <oi>Astroturf: {{dataUn.astroturf}}</oi><br>
+    <oi>Fake Follower: {{dataUn.fake_follower}}</oi><br>
+    <oi>Financial: {{dataUn.financial}}</oi><br>
+    <oi>Other: {{dataUn.other}}</oi><br>
+    <oi>Self Declared: {{dataUn.self_declared}}</oi><br>
+    <oi>Spammer: {{dataUn.spammer}}</oi><br>
 </ul>
-
+</center>

@@ -17,6 +17,11 @@ bom = botometer.Botometer(wait_on_ratelimit=True,
                           rapidapi_key=rapidapi_key,
                           **twitter_app_auth)
 
+# Need to add: 
+# 1. Get Tweet(s)
+# 2. combine and put through SAES function below
+# 3. Front End needs to display that instead of printing
+
 def sample_analyze_entity_sentiment(text_content):
     client = language_v1.LanguageServiceClient()
     # text_content = 'Grapes are good. Bananas are bad.'
