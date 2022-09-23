@@ -19,3 +19,8 @@ Then start the fron end with
 python app.py
 ```
 The the front end can be accessed at 127.0.0.1:5000
+The page is diplayed like this:
+![image](https://user-images.githubusercontent.com/60164575/192021090-ae9d5e3a-da0e-4096-afc0-773244e6d7b5.png)
+
+Searh "TwitterDev" gives an result page like this:
+![image](https://user-images.githubusercontent.com/60164575/192021390-8c63960c-2eef-440d-8e93-e4a7140b01a4.png)
