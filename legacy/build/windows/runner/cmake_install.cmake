@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/XTYAO/Desktop/ec463mini-project/flutter_application_1/windows/runner
+# Install script for directory: D:/Users/pares/Documents/GitHub/ec463mini-project/windows/runner
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

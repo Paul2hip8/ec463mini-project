@@ -1,6 +1,6 @@
-^C:\USERS\XTYAO\DESKTOP\EC463MINI-PROJECT\FLUTTER_APPLICATION_1\BUILD\WINDOWS\CMAKEFILES\87D1458C32FF7DF499ABD6EED1EDA50F\GENERATE.STAMP.RULE
+^D:\USERS\PARES\DOCUMENTS\GITHUB\EC463MINI-PROJECT\BUILD\WINDOWS\CMAKEFILES\1781F6EC803D5E4A1317542C303E71E8\GENERATE.STAMP.RULE
 setlocal
-D:\visual_studio\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe -SC:/Users/XTYAO/Desktop/ec463mini-project/flutter_application_1/windows -BC:/Users/XTYAO/Desktop/ec463mini-project/flutter_application_1/build/windows --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/XTYAO/Desktop/ec463mini-project/flutter_application_1/build/windows/flutter_application_1.sln
+"D:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/Users/pares/Documents/GitHub/ec463mini-project/windows -BD:/Users/pares/Documents/GitHub/ec463mini-project/build/windows --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/Users/pares/Documents/GitHub/ec463mini-project/build/windows/flutter_application_1.sln
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

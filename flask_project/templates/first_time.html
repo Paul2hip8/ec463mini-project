@@ -1,7 +1,21 @@
+<!doctype html>
+<center>
+<title>{% block title %}TweetMeet{% endblock %} - Flaskr</title>
+
+<section class="content">
+  <header>
+    {% block header %}Welcome to Yao and Paul's Twitter Account Lookup! Please Enter a Twitter Username below:{% endblock %}
+  </header>
+<br>
 <form method="POST">
     <input name="text">
     <input type="submit">
 </form>
 
+
+  {% block content %}Placeholder Text{% endblock %}
+</section>
+
 <br><br>
 <p>{{error_message}}</p>
+</center>
