@@ -4,7 +4,7 @@
 
 <section class="content">
   <header>
-    {% block header %}Welcome to Yao and Paul's Twitter Account Lookup! Please Enter a Twitter Username below:{% endblock %}
+    {% block header %}Welcome to Xiteng and Paul's Twitter Account Lookup! Please Enter a Twitter Username below:{% endblock %}
   </header>
 <br>
 <form method="POST">
@@ -12,10 +12,8 @@
     <input type="submit">
 </form>
 
-
-  {% block content %}Placeholder Text{% endblock %}
+  <br><br>
+  {% block content %}{{error_message}}{% endblock %}
 </section>
 
-<br><br>
-<p>{{error_message}}</p>
-</center>
+
